@@ -17,7 +17,8 @@ namespace ArkPortalWebApi.Models
             foreach(var line in lines)
             {
                 System.Diagnostics.Debug.WriteLine(line);
-                var todPattern = "(\\w{3}\\s\\d+,\\s\\d{2}:?\\d{2}:\\d{2}):\\s(<\\w+\\s\\w+=\"\\d,\\s\\d,\\s\\d,\\s\\d\">)?([\\w\\s-\\(\\)'\\!]+)";
+                //(\w{3}\s\d+,\s\d{2}:?\d{2}:\d{2}):\s(<\w+\s\w+="\d,\s\d,\s\d,\s\d">)?([\w\s-\(\)'\!]+)
+                var todPattern = "(\\w{3}\\s\\d+,\\s\\d{2}:?\\d{2}:\\d{2}):\\s(<\\w+\\s\\w+=\"\\d[\\.\\d+]*,\\s\\d[\\.\\d+]*,\\s\\d[\\.\\d+]*,\\s\\d[\\.\\d+]*\">)?([\\w\\s-\\(\\)'\\!]+)";
                 var r = new Regex(todPattern, RegexOptions.IgnoreCase|RegexOptions.Multiline);
                 var match = r.Match(line);
                 var type = TribeLogType.Normal;
