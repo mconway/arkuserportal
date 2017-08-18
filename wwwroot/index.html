@@ -11,7 +11,7 @@
             .controller('test', function($scope, $http) {
                 $http({
                     method: 'GET',
-                    url: 'http://localhost:5000/api/server'
+                    url: '/api/server'
                 }).then(function (response){
                     $scope.server = response.data;
                 });
@@ -19,7 +19,7 @@
             .controller('tribe', function($scope, $http) {
                 $http({
                     method: 'GET',
-                    url: 'http://localhost:5000/api/tribes'
+                    url: '/api/tribes'
                 }).then(function (response){
                     console.log(response.data);
                     $scope.tribes = response.data;
