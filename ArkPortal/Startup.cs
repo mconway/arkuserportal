@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ArkPortalWebApi.Models;
 
 namespace ArkPortalWebApi
 {
@@ -24,6 +25,9 @@ namespace ArkPortalWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //DI for the Interfaces
+            services.AddSingleton<IWebApiClient, ArkServerApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
